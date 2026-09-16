@@ -15,21 +15,54 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    int n;
 
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
+    switch (n) {
+        case 71:
+            printf("seventy one");
+            break;
+        case 72:
+            printf("seventy two");
+            break;
+        case 73:
+            printf("seventy three");
+            break;
+        case 74:
+            printf("seventy four");
+            break;
+        case 75:
+            printf("seventy five");
+            break;
+        case 76:
+            printf("seventy six");
+            break;
+        case 77:
+            printf("seventy seven");
+            break;
+        case 78:
+            printf("seventy eight");
+            break;
+        case 79:
+            printf("seventy nine");
+            break;
+        default:
+            printf("Greater than 79");
+    }
 
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![alt text](image-5.png)
 
 Result:
 Thus, the program is verified successfully
@@ -46,21 +79,34 @@ Algorithm:
 6.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    char a[50];
+    int i, j, c;
 
+    printf("Enter a string: ");
+    scanf("%s", a);
 
+    for (i = 0; i <= 3; i++) {
+        c = 0;
 
+        for (j = 0; a[j] != '\0'; j++) {
+            if (a[j] == i + '0')
+                c++;
+        }
+
+        printf("%d ", c);
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![alt text](image-6.png)
 
 Result:
 Thus, the program is verified successfully
@@ -83,21 +129,73 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+```
+#include <stdio.h>
+#include <string.h>
 
-//type your code here
+void swap(char *a, char *b) {
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
+void reverse(char *s, int start, int end) {
+    while (start < end) {
+        swap(&s[start], &s[end]);
+        start++;
+        end--;
+    }
+}
 
+int nextPermutation(char *s) {
+    int i, j, n = strlen(s);
 
+    i = n - 2;
+    while (i >= 0 && s[i] >= s[i + 1])
+        i--;
+
+    if (i < 0)
+        return 0;
+
+    j = n - 1;
+    while (s[j] <= s[i])
+        j--;
+
+    swap(&s[i], &s[j]);
+    reverse(s, i + 1, n - 1);
+
+    return 1;
+}
+
+int main() {
+    char s[50];
+    int i, j, n;
+
+    printf("Enter a string: ");
+    scanf("%s", s);
+
+    n = strlen(s);
+
+    for (i = 0; i < n - 1; i++) {
+        for (j = i + 1; j < n; j++) {
+            if (s[i] > s[j])
+                swap(&s[i], &s[j]);
+        }
+    }
+
+    printf("Permutations in lexicographical order:\n");
+    printf("%s\n", s);
+
+    while (nextPermutation(s))
+        printf("%s\n", s);
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![alt text](image-7.png)
 
 Result:
 Thus, the program is verified successfully
@@ -116,21 +214,42 @@ Algorithm:
 7.	End
  
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int main() {
+    int n, i, j, min, len;
 
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
 
+    len = n * 2 - 1;
 
+    for (i = 0; i < len; i++) {
+        for (j = 0; j < len; j++) {
+            min = i;
+
+            if (j < min)
+                min = j;
+
+            if (len - 1 - i < min)
+                min = len - 1 - i;
+
+            if (len - 1 - j < min)
+                min = len - 1 - j;
+
+            printf("%d ", n - min);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![alt text](image-8.png)
 
 Result:
 Thus, the program is verified successfully
@@ -155,21 +274,32 @@ o	Call the square() function and display the result.
 5.	End.
 
 Program:
+```
+#include <stdio.h>
 
-//type your code here
+int square() {
+    int n;
 
+    printf("Enter a number: ");
+    scanf("%d", &n);
 
+    return n * n;
+}
 
+int main() {
+    int result;
+
+    result = square();
+
+    printf("Square = %d", result);
+
+    return 0;
+}
+```
 
 Output:
 
-
-//paste your output here
-
-
-
-
-
+![alt text](image-9.png)
 
 Result:
 Thus, the program is verified successfully
